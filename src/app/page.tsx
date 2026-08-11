@@ -33,28 +33,44 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-navy-900 text-primary-foreground">
+      <section className="relative isolate flex min-h-[78vh] items-center overflow-hidden bg-navy-950 text-white">
+        {/* Background photo (optimized WebP). */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-[0.15]"
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/images/hero.webp')" }}
+        />
+        {/* Rich navy gradient stand-in + warm brass glow (also enriches the photo). */}
+        <div
+          aria-hidden
+          className="absolute inset-0"
           style={{
             backgroundImage:
-              "radial-gradient(60rem 40rem at 80% -10%, var(--color-gold-500), transparent 60%)",
+              "radial-gradient(70rem 45rem at 82% -15%, rgba(193,146,59,0.20), transparent 55%), linear-gradient(120deg, #050f22 0%, #0d2244 48%, #163663 100%)",
           }}
         />
-        <Container className="relative py-20 sm:py-28 lg:py-32">
-          <div className="max-w-3xl">
-            <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-gold-400/30 bg-gold-500/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.14em] text-gold-300">
-              <ShieldCheck className="size-3.5" /> Kolkata financial services
+        {/* Left-weighted legibility overlay. */}
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-gradient-to-r from-navy-950/92 via-navy-950/70 to-navy-950/25"
+        />
+        {/* Thin gold hairline at the base for a premium finish. */}
+        <div
+          aria-hidden
+          className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-gold-500/50 to-transparent"
+        />
+        <Container className="relative py-24 sm:py-28 lg:py-32">
+          <div className="max-w-2xl">
+            <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-gold-400/30 bg-white/[0.06] px-3.5 py-1.5 text-xs font-medium uppercase tracking-[0.16em] text-gold-300 backdrop-blur-sm">
+              <ShieldCheck className="size-3.5" /> Kolkata · Trusted financial partner
             </p>
-            <h1 className="text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">
-              Clarity for your <span className="text-gold-400">taxes</span>, confidence
-              for your <span className="text-gold-400">wealth</span>.
+            <h1 className="text-4xl font-semibold leading-[1.05] sm:text-5xl lg:text-[3.75rem]">
+              Tax, Compliance &amp; Wealth Advisory{" "}
+              <span className="text-gold-400">Under One Roof.</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-navy-100">
-              Ledger &amp; Legacy pairs meticulous tax &amp; compliance with thoughtful
-              wealth advisory — so individuals, families and businesses can plan ahead
-              with confidence.
+              Comprehensive financial solutions tailored for individuals, professionals,
+              and enterprises seeking stability and growth.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Button href="/consultation" size="lg" variant="accent">
