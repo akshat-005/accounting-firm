@@ -83,7 +83,6 @@
   }
 
   html {
-    scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
   }
 
@@ -134,5 +133,23 @@
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
     }
+  }
+}
+
+/* Scroll-reveal driven by JS (IntersectionObserver via <Reveal>): the element
+   starts hidden + shifted, then transitions in when it enters the viewport. */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(1.75rem);
+    transition:
+      opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    will-change: auto;
   }
 }

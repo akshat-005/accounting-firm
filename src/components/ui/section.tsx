@@ -1,6 +1,7 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 import { Container } from "./container";
+import { Reveal } from "./reveal";
 
 type SectionProps = React.ComponentProps<"section"> & {
   /** Background band. */
@@ -9,6 +10,8 @@ type SectionProps = React.ComponentProps<"section"> & {
   spacing?: "sm" | "md" | "lg";
   /** Wrap children in a Container automatically. */
   contained?: boolean;
+  /** Fade/rise the content in when it scrolls into view. */
+  reveal?: boolean;
 };
 
 const bands: Record<NonNullable<SectionProps["variant"]>, string> = {
@@ -19,9 +22,9 @@ const bands: Record<NonNullable<SectionProps["variant"]>, string> = {
 };
 
 const rhythm: Record<NonNullable<SectionProps["spacing"]>, string> = {
-  sm: "py-12 sm:py-16",
-  md: "py-16 sm:py-20 lg:py-24",
-  lg: "py-20 sm:py-28 lg:py-32",
+  sm: "py-10 sm:py-12",
+  md: "py-12 sm:py-14 lg:py-16",
+  lg: "py-14 sm:py-16 lg:py-20",
 };
 
 /** Full-bleed section band with consistent vertical rhythm. */
@@ -30,12 +33,14 @@ export function Section({
   variant = "default",
   spacing = "md",
   contained = true,
+  reveal = false,
   children,
   ...props
 }: SectionProps) {
+  const inner = contained ? <Container>{children}</Container> : children;
   return (
     <section className={cn(bands[variant], rhythm[spacing], className)} {...props}>
-      {contained ? <Container>{children}</Container> : children}
+      {reveal ? <Reveal>{inner}</Reveal> : inner}
     </section>
   );
 }

@@ -4,7 +4,7 @@ import "./globals.css";
 import { siteConfig } from "@/lib/site-config";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
-import { WhatsAppFloat } from "@/components/layout/whatsapp-float";
+import { FloatingActions } from "@/components/layout/floating-actions";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -80,7 +80,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </main>
         <SiteFooter />
-        <WhatsAppFloat />
+        <FloatingActions />
       </body>
     </html>
   );

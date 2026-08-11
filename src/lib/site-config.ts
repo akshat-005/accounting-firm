@@ -8,9 +8,9 @@
  * Contact channels can be overridden per-environment via NEXT_PUBLIC_* env vars.
  */
 
-const phone = process.env.NEXT_PUBLIC_FIRM_PHONE ?? "+91 00000 00000";
-const whatsapp = process.env.NEXT_PUBLIC_FIRM_WHATSAPP ?? "910000000000";
-const email = process.env.NEXT_PUBLIC_FIRM_EMAIL ?? "hello@ledgerandlegacy.com";
+const phone = process.env.NEXT_PUBLIC_FIRM_PHONE ?? "+91 93307 44454";
+const whatsapp = process.env.NEXT_PUBLIC_FIRM_WHATSAPP ?? "919330744454";
+const email = process.env.NEXT_PUBLIC_FIRM_EMAIL ?? "trendrider147@gmail.com";
 
 export const siteConfig = {
   name: "Ledger & Legacy",
@@ -31,14 +31,14 @@ export const siteConfig = {
     whatsappMessage:
       "Hello, I found Ledger & Legacy through your website and would like to know more about your services.",
     address: {
-      line1: "[Office address line 1]",
-      line2: "[Office address line 2]",
+      line1: "P 888, Block - A, Ground Floor",
+      line2: "Lake Town",
       city: "Kolkata",
       state: "West Bengal",
-      postalCode: "[PIN]",
+      postalCode: "700 089",
       country: "India",
     },
-    hours: "Mon–Sat, 10:00–19:00 IST",
+    hours: "Mon–Sat, 10 AM – 6 PM",
     // Google Maps embed / place URL — supply once the Business Profile is live.
     mapsUrl: process.env.NEXT_PUBLIC_MAPS_URL ?? "",
   },
@@ -75,8 +75,7 @@ export const mainNav: NavItem[] = [
     description: "Financial planning, wealth and portfolio advisory.",
   },
   { label: "Insights", href: "/insights", description: "Articles, guides & resources." },
-  { label: "About", href: "/about", description: "Our story, team and credentials." },
-  { label: "Contact", href: "/contact", description: "Reach us by phone, email or WhatsApp." },
+  { label: "About Us", href: "/about", description: "Our story, team and credentials." },
 ];
 
 /** Footer link groups (legal + regulatory live here per the PRD). */
