@@ -153,3 +153,23 @@
     will-change: auto;
   }
 }
+
+/* Anchored service category (jumped to from the "what do you need help with"
+   cards): offset for the sticky header, plus a brief highlight flash. */
+.service-group {
+  scroll-margin-top: 6rem;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .service-group:target {
+    animation: service-flash 2.2s ease-out;
+  }
+  @keyframes service-flash {
+    0%,
+    25% {
+      box-shadow: 0 0 0 2px var(--color-gold-400), var(--shadow-lift);
+    }
+    100% {
+      box-shadow: var(--shadow-soft);
+    }
+  }
+}
