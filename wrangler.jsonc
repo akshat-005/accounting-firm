@@ -1,0 +1,19 @@
+{
+  // Cloudflare Workers configuration for the OpenNext-built Next.js app.
+  // https://developers.cloudflare.com/workers/wrangler/configuration/
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ledger-legacy",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2025-08-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "observability": {
+    "enabled": true
+  }
+  // Secrets (SUPABASE_SERVICE_ROLE_KEY, etc.) are set via:
+  //   npx wrangler secret put SUPABASE_SERVICE_ROLE_KEY
+  // Public vars can be added under a "vars" block or the Cloudflare dashboard.
+}

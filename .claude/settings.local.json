@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm --version)",
+      "Bash(git --version)",
+      "Bash(rtk npx *)",
+      "Bash(rtk next *)",
+      "Bash(rtk proxy *)",
+      "Bash(node \"node_modules/next/dist/bin/next\" build)",
+      "Bash(rtk lint *)",
+      "Bash(echo \"=== LINT EXIT: $? ===\")",
+      "Bash(rtk tsc *)"
+    ]
+  }
+}

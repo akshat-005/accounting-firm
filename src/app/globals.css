@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ *
+ * Ledger & Legacy — Design System
+ * Premium, established, trustworthy. Deep navy + brass/gold on warm
+ * ivory. V1 ships a single controlled light theme for brand consistency.
+ * ------------------------------------------------------------------ */
+
+@theme {
+  /* Semantic surfaces */
+  --color-background: #fbfaf7; /* warm ivory */
+  --color-foreground: #16202b; /* ink */
+  --color-card: #ffffff;
+  --color-card-foreground: #16202b;
+  --color-muted: #f2efe8; /* warm sand */
+  --color-muted-foreground: #56626f;
+  --color-subtle: #f7f5f0; /* alternating section band */
+  --color-border: #e6e0d5;
+  --color-input: #e6e0d5;
+  --color-ring: #0e2a47;
+
+  /* Brand — Navy (primary / trust) */
+  --color-navy-50: #eef2f7;
+  --color-navy-100: #d6e0ec;
+  --color-navy-200: #adc0d8;
+  --color-navy-300: #7f9cc0;
+  --color-navy-400: #4f74a2;
+  --color-navy-500: #2c5081;
+  --color-navy-600: #1a3c66;
+  --color-navy-700: #123963;
+  --color-navy-800: #0e2a47; /* primary */
+  --color-navy-900: #0b2038;
+  --color-navy-950: #071527;
+
+  /* Brand — Gold / Brass (legacy / premium accent) */
+  --color-gold-50: #faf6ec;
+  --color-gold-100: #f2e8cf;
+  --color-gold-200: #e6d09e;
+  --color-gold-300: #d7b76c;
+  --color-gold-400: #c7a15a;
+  --color-gold-500: #b08a46; /* accent */
+  --color-gold-600: #977439;
+  --color-gold-700: #785a2e;
+  --color-gold-800: #5c4526;
+  --color-gold-900: #3f2f1b;
+
+  /* Semantic aliases */
+  --color-primary: var(--color-navy-800);
+  --color-primary-foreground: #f7fafc;
+  --color-accent: var(--color-gold-500);
+  --color-accent-foreground: #2a1e08;
+
+  /* Feedback */
+  --color-success: #2f7a52;
+  --color-danger: #b3402f;
+
+  /* Typography */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+
+  /* Radii & shadows */
+  --radius-sm: 0.375rem;
+  --radius: 0.625rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  --shadow-soft: 0 1px 2px rgba(16, 32, 47, 0.04), 0 8px 24px rgba(16, 32, 47, 0.06);
+  --shadow-lift: 0 2px 4px rgba(16, 32, 47, 0.05), 0 16px 40px rgba(16, 32, 47, 0.1);
+
+  /* Content width */
+  --container-content: 80rem; /* 1280px */
+}
+
+/* Lock to the light theme for V1 (deliberate brand decision). */
+:root {
+  color-scheme: light;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv11", "ss01";
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 550;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Accessible, on-brand focus ring for keyboard users. */
+  :focus-visible {
+    outline: 2px solid var(--color-navy-700);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background-color: var(--color-gold-200);
+    color: var(--color-navy-900);
+  }
+}
+
+@layer utilities {
+  /* Respect users who prefer reduced motion. */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
