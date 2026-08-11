@@ -133,12 +133,28 @@ export default function TaxCompliancePage() {
     <>
       {/* 1. Hero (compact) */}
       <section className="relative isolate overflow-hidden border-b border-border bg-background">
+        {/* Layer 1 — soft light gradient stand-in (shows only if no photo). */}
         <div
           aria-hidden
           className="absolute inset-0"
           style={{
             backgroundImage:
               "linear-gradient(120deg, #f5f7fb 0%, #eef2f9 55%, #dbe4f1 100%)",
+          }}
+        />
+        {/* Layer 2 — background photo (optimized WebP), covers the stand-in. */}
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/images/tax-hero.webp')" }}
+        />
+        {/* Layer 3 — light panel over the text zone; photo stays clear on the right. */}
+        <div
+          aria-hidden
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, rgba(255,255,255,0.82) 0%, rgba(255,255,255,0.64) 42%, rgba(255,255,255,0.30) 64%, rgba(255,255,255,0) 88%)",
           }}
         />
         <div
