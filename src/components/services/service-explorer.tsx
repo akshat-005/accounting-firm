@@ -130,11 +130,15 @@ function ServiceCard({
       onClick={onSelect}
       className="group flex h-full flex-col rounded-xl border bg-card p-6 text-left shadow-soft transition-shadow hover:shadow-lift"
     >
-      <h3 className="text-lg leading-snug text-navy-900">{service.name}</h3>
-      <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
-        {service.basic}
-      </p>
-      <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-gold-600">
+      <h3 className="text-2xl font-semibold leading-tight text-navy-900">
+        {service.name}
+      </h3>
+      {service.tagline ? (
+        <p className="mt-2 text-sm font-medium text-muted-foreground">
+          {service.tagline}
+        </p>
+      ) : null}
+      <span className="mt-auto inline-flex items-center gap-1 pt-6 text-sm font-medium text-gold-600">
         View details
         <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
       </span>

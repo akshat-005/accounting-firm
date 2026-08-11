@@ -15,6 +15,7 @@ export function ProcessSteps({
   steps,
   cta,
   variant = "default",
+  spacing = "lg",
 }: {
   eyebrow: string;
   title: string;
@@ -22,9 +23,10 @@ export function ProcessSteps({
   steps: ProcessStep[];
   cta?: { label: string; href: string };
   variant?: "default" | "subtle";
+  spacing?: "md" | "lg";
 }) {
   return (
-    <Section spacing="lg" variant={variant} reveal>
+    <Section spacing={spacing} variant={variant} reveal>
       <SectionHeading
         align="center"
         className="mx-auto"

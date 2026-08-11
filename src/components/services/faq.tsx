@@ -11,13 +11,15 @@ export function Faq({
   eyebrow = "FAQ",
   title = "Frequently asked questions",
   items,
+  spacing = "lg",
 }: {
   eyebrow?: string;
   title?: string;
   items: FaqItem[];
+  spacing?: "md" | "lg";
 }) {
   return (
-    <Section spacing="lg" variant="subtle" reveal>
+    <Section spacing={spacing} variant="subtle" reveal>
       <SectionHeading align="center" className="mx-auto" eyebrow={eyebrow} title={title} />
       <div className="mx-auto mt-10 max-w-3xl divide-y divide-border overflow-hidden rounded-xl border bg-card shadow-soft">
         {items.map((item) => (

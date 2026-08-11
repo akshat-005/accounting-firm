@@ -19,6 +19,8 @@ export type ServiceInfo = {
   /** Stable id — also passed to /consultation?service=<slug>. */
   slug: string;
   name: string;
+  /** Very short (5–7 word) label shown on the flat service cards. */
+  tagline?: string;
   /** 1–2 sentence, plain-English explanation. */
   basic: string;
   /** Who the service typically makes sense for. */
@@ -319,6 +321,7 @@ export const investmentServices: ServiceInfo[] = [
   {
     slug: "investment-advisory",
     name: "Investment Advisory Services",
+    tagline: "Informed guidance on where to invest",
     basic:
       "Objective, personalised guidance on where and how to invest — aligned to your goals, timeframe and comfort with risk — so your decisions are informed rather than guesswork.",
     idealFor: [
@@ -337,6 +340,7 @@ export const investmentServices: ServiceInfo[] = [
   {
     slug: "financial-planning",
     name: "Financial Planning & Advisory",
+    tagline: "A roadmap for all your goals",
     basic:
       "A structured plan for your money across life goals — saving, investing, protection and cash flow — bringing the whole picture together into one roadmap.",
     idealFor: [
@@ -354,6 +358,7 @@ export const investmentServices: ServiceInfo[] = [
   {
     slug: "wealth-management",
     name: "Wealth Management",
+    tagline: "Your whole wealth, managed together",
     basic:
       "Comprehensive, ongoing management of your wealth — coordinating investments, planning and periodic reviews as a single, continuing relationship.",
     idealFor: [
@@ -371,6 +376,7 @@ export const investmentServices: ServiceInfo[] = [
   {
     slug: "portfolio-management",
     name: "Portfolio Management Services (PMS)",
+    tagline: "Professionally managed portfolios for larger investors",
     basic:
       "Professionally managed investment portfolios for larger investors, handled by SEBI-registered portfolio managers. PMS has a minimum investment of ₹50 lakh per client (as mandated by SEBI) and is subject to market risk.",
     idealFor: [
@@ -387,6 +393,7 @@ export const investmentServices: ServiceInfo[] = [
   {
     slug: "mutual-fund",
     name: "Mutual Fund Advisory",
+    tagline: "The right funds for your goals",
     basic:
       "Help choosing and reviewing mutual funds suited to your goals and risk profile, and staying on track over time. Mutual fund investments are subject to market risk.",
     idealFor: ["New & regular investors", "SIP investors", "Goal-based savers"],
@@ -400,6 +407,7 @@ export const investmentServices: ServiceInfo[] = [
   {
     slug: "asset-management",
     name: "Asset Management Services",
+    tagline: "Your asset mix, balanced and reviewed",
     basic:
       "Managing and balancing your mix of assets across categories, with periodic review and rebalancing to keep it aligned to your objectives.",
     idealFor: [
@@ -412,6 +420,7 @@ export const investmentServices: ServiceInfo[] = [
   {
     slug: "financial-consultancy",
     name: "Financial Consultancy",
+    tagline: "Clear answers to specific money questions",
     basic:
       "One-off or ongoing consultation on a specific financial question or decision — a clear, unbiased perspective for when you need one.",
     idealFor: [
