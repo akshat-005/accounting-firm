@@ -10,7 +10,7 @@
 
 const phone = process.env.NEXT_PUBLIC_FIRM_PHONE ?? "+91 93307 44454";
 const whatsapp = process.env.NEXT_PUBLIC_FIRM_WHATSAPP ?? "919330744454";
-const email = process.env.NEXT_PUBLIC_FIRM_EMAIL ?? "trendrider147@gmail.com";
+const email = process.env.NEXT_PUBLIC_FIRM_EMAIL ?? "consultation@ledgernlegacy.com";
 
 export const siteConfig = {
   name: "Ledger & Legacy",
