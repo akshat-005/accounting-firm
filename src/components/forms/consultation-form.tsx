@@ -51,6 +51,11 @@ export function ConsultationForm() {
 
   const serviceLabel = slugToName.get(service) ?? "General enquiry";
 
+  const emailSubject = `Consultation request — ${serviceLabel}`;
+  const mailtoHref = `mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(
+    emailSubject,
+  )}&body=${encodeURIComponent(buildBody())}`;
+
   function buildBody() {
     return [
       "New consultation request from the website:",
@@ -82,12 +87,13 @@ export function ConsultationForm() {
     setSentVia("whatsapp");
   }
 
-  function sendEmail() {
-    if (!validate()) return;
-    const subject = `Consultation request — ${serviceLabel}`;
-    window.location.href = `mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(
-      subject,
-    )}&body=${encodeURIComponent(buildBody())}`;
+  function handleEmailClick(e: React.MouseEvent<HTMLAnchorElement>) {
+    // Let the anchor's real mailto: navigation happen (a genuine user gesture
+    // the browser will honour); only block it if the form isn't valid yet.
+    if (!validate()) {
+      e.preventDefault();
+      return;
+    }
     setSentVia("email");
   }
 
@@ -120,6 +126,12 @@ export function ConsultationForm() {
             <MessageCircle className="size-4" /> Open WhatsApp
           </a>
         </div>
+        <a
+          href={siteConfig.contact.emailHref}
+          className="mt-4 inline-block text-sm font-medium text-navy-800 underline underline-offset-2 hover:text-gold-600"
+        >
+          {siteConfig.contact.email}
+        </a>
       </div>
     );
   }
@@ -236,13 +248,13 @@ export function ConsultationForm() {
         >
           <MessageCircle className="size-4" /> Request via WhatsApp
         </button>
-        <button
-          type="button"
-          onClick={sendEmail}
+        <a
+          href={mailtoHref}
+          onClick={handleEmailClick}
           className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-md border border-navy-800/25 px-5 text-sm font-semibold text-navy-800 transition-colors hover:bg-navy-50"
         >
           <Mail className="size-4" /> Request via Email
-        </button>
+        </a>
       </div>
       <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
         By sending your request you agree to our{" "}

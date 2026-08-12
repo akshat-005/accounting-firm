@@ -41,6 +41,10 @@ export function ReferralForm() {
       .join("\n");
   }
 
+  const mailtoHref = `mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(
+    "Referral from the website",
+  )}&body=${encodeURIComponent(buildBody())}`;
+
   function validate() {
     if (!yourName.trim() || !yourPhone.trim() || !friendName.trim()) {
       setError("Please fill in your name, your phone, and your friend's name.");
@@ -61,11 +65,11 @@ export function ReferralForm() {
     setSentVia("whatsapp");
   }
 
-  function sendEmail() {
-    if (!validate()) return;
-    window.location.href = `mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(
-      "Referral from the website",
-    )}&body=${encodeURIComponent(buildBody())}`;
+  function handleEmailClick(e: React.MouseEvent<HTMLAnchorElement>) {
+    if (!validate()) {
+      e.preventDefault();
+      return;
+    }
     setSentVia("email");
   }
 
@@ -195,13 +199,13 @@ export function ReferralForm() {
         >
           <MessageCircle className="size-4" /> Send via WhatsApp
         </button>
-        <button
-          type="button"
-          onClick={sendEmail}
+        <a
+          href={mailtoHref}
+          onClick={handleEmailClick}
           className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-md border border-navy-800/25 px-5 text-sm font-semibold text-navy-800 transition-colors hover:bg-navy-50"
         >
           <Mail className="size-4" /> Send via Email
-        </button>
+        </a>
       </div>
     </form>
   );
